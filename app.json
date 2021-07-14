@@ -1,14 +1,11 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
+  "pages": [
+    "pages/index/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "navigationBarBackgroundColor": "#FF3A3A",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "云音乐"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
