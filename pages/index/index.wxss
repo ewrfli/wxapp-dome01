@@ -35,34 +35,11 @@
 .navItem text{
   font-size: 26rpx;
 }
+/* 导航栏区域结束 */
+
+/* 推荐歌曲区域 */
 .recommendContainer{
-  padding:0 20rpx;
-  margin-top: 20rpx;
-}
-.recommendContainer .recommendgd {
-  font-size: 32rpx;
-  line-height: 80rpx;
-  color:#666;
-}
-.recommendContainer .title{
-  width: 100%;
-  height: 70rpx;
-  margin-top: -10rpx;
-  position: relative;
-}
-.recommendContainer .recommendtitle{
-  display: block;
-  font-size: 42rpx;
-  line-height: 80rpx;
-}
-.recommendContainer .more{
-  display: block;
-  font-size: 32rpx;
-  color:rgb(26, 26, 26);
-  margin-right: 10rpx;
-  position: absolute;
-  top: 18rpx;
-  right: 10rpx;
+  padding: 0 20rpx;
 }
  .tjimg{
   margin-top: 20rpx;
@@ -74,9 +51,12 @@
  .tjimg .scrollItem image{
   width: 200rpx;
   height: 200rpx;
+  border-radius: 8rpx;
 }
 .recommendScroll{
   display: flex;
+  height: 300rpx;
+  /* Scroll得设置高度 */
 }
 .scrollItem text{
   display: block;
@@ -91,5 +71,55 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+/* 推荐歌单区域结束 */
+
+/* 排行榜区域开始 */
+.topList{
+  margin-top: -30rpx;
+  padding: 0 20rpx;
+}
+.topListSwiper{
+  height: 800rpx;
+  /* 不写的话会默认150rpx */
+}
+
+.swiperItem{
+  width: 96%;
+  background-color: #fbfbfb;
+  border-radius: 10rpx;
+}
+.topList .swiperItem .musicItem image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 6rpx;
+}
+.topList .swiperItem .title{
+  font-size: 30rpx;
+  line-height: 110rpx;
+}
+.topList .musicItem{
+  /* vertical-align:middle */
+  /* text-align: center; */
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20rpx;
 
 }
+.topList .musicItem .count{
+  display:inline-block;
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+.topList .musicItem .musicName{
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 排行榜区域结束 */
