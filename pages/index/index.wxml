@@ -1,6 +1,6 @@
 <view class="indexContainer">
     <!-- 轮播图区域 -->
-    <swiper class="banners" indicator-dots="true" indicator-active-color="#d43c33" indicator-color="ivory">
+    <swiper class="banners" indicator-dots="true" indicator-active-color="#d43c33" indicator-color="ivory" autoplay>
       <swiper-item wx:key="bannerId" wx:for="{{bannerList}}">
       <image src="{{item.pic}}" alt=""></image>
       </swiper-item>

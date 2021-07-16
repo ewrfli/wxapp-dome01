@@ -32,6 +32,7 @@
       refresher-triggered="{{isTriggered}}"
       bindscrolltolower="handleToLower"
   >
+  <!-- 下拉刷新上拉加载api bindrefresherrefresh bindscrolltolower -->
     <view class="videoItem" wx:for="{{videoList}}" wx:key="id">
       <video
           src="{{item.data.urlInfo.url}}"
@@ -40,15 +41,15 @@
           poster="{{item.data.coverUrl}}"
           class="common"
           object-fit="cover"
- 
+          wx:if='{{videoId === item.data.vid}}'
           bindtimeupdate="handleTimeUpdate"
           bindended="handleEnded"
+          autoplay
       ></video>
-
+      <!-- video里不需要了 bindplay="handlePlay" -->
       <!-- wx:if='{{videoId === item.data.vid}}' -->
       <!-- 性能优化：使用image图片代替video标签 -->
-      
-      <!-- <image wx:else bindtap="handlePlay" id="{{item.data.vid}}" class="common" src="{{item.data.coverUrl}}"></image> -->
+      <image wx:else bindtap="handlePlay" id="{{item.data.vid}}" class="common" src="{{item.data.coverUrl}}"></image>
 
 
       <view class="content">{{item.data.title}}</view>
@@ -58,15 +59,15 @@
         <text class="nickName">{{item.data.creator.nickname}}</text>
         <view class="comments_praised">
           <text class="item">
-            <text class="iconfont icon-buoumaotubiao15"></text>
+            <text class="iconfont icon-xihuan"></text>
             <text class="count">{{item.data.praisedCount}}</text>
           </text>
           <text class="item">
-            <text class="iconfont icon-pinglun1"></text>
+            <text class="iconfont icon-comment"></text>
             <text class="count">{{item.data.commentCount}}</text>
           </text>
           <button open-type="share" class="item btn">
-            <text class="iconfont icon-gengduo"></text>
+            <text class="iconfont icon-xuanxiang"></text>
           </button>
         </view>
       </view>

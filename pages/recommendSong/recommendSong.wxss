@@ -1,0 +1,126 @@
+/* pages/recommendSong/recommendSong.wxss *//* pages/personal/personal.wxss */
+
+/* 上半部分开始 */
+.recommendSongContainer {
+  width: 100%;
+  height: 100%;
+
+}
+
+.recommendSongContainer .header {
+  height: 320rpx;
+  position: relative;
+  padding: 100rpx 30rpx 0;
+}
+
+.header .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(1px);
+}
+
+.recommendSongContainer .header .date{
+  position: absolute;
+  margin-left: -85rpx;
+  margin-top: 50rpx;
+  width: 300rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color: #fff;
+}
+.header .date .day{
+  font-size: 38rpx;
+  
+}
+
+/* 上半部分结束 */
+
+
+
+
+
+/* 下半部分开始 */
+.ListContainer{
+  margin-top: -150rpx;
+  padding: 0 30rpx;
+  position:relative;
+  background: #f5f5f5;
+  padding-bottom: 20rpx;
+  height: 900rpx;
+}
+
+.ListContainer .arc{
+  position:absolute;
+  left: 0;
+  top: -34rpx;
+  width: 100%;
+  height: 36rpx;
+}
+
+/* 列表区域 */
+.ListContainer {
+  position: relative;
+  padding: 0 20rpx;
+  background: #fff;
+}
+.listHeader {
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.listHeader .changeMore {
+  float: right;
+}
+/* 内容区 */
+.listScroll {
+  height: calc(100vh - 320rpx);
+}
+.scrollItem {
+  position: relative;
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.scrollItem image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+}
+
+.musicInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+
+}
+
+.musicInfo text {
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  max-width: 500rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.scrollItem .iconfont {
+  position: absolute;
+  right: 0;
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: right;
+}
+
+
+
+/* 下半部分结束*/
+
+
+
+
+
