@@ -62,6 +62,35 @@ Page({
 
   },
 
+  //跳转每日推荐歌曲界面
+  toRecommenSong(){
+    wx.navigateTo({
+      url: '/pages/recommendSong/recommendSong',
+    })
+  },
+
+
+  toSongDetail(event){
+    wx.navigateTo({
+      url: '/pages/songDetail/songDetail?song=' + event.currentTarget.id
+    })
+  },
+  //跳转到歌单歌曲列表页面
+  toRecommendList(event){
+    console.log(event.currentTarget.id);
+    wx.navigateTo({
+      url: '/pages/recommendList/recommendList?id=' + event.currentTarget.id
+    })
+  },
+
+  //跳转搜索界面
+  toSearch(){
+    wx.navigateTo({
+      url: '/pages/search/search'
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

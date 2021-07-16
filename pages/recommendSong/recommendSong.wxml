@@ -25,7 +25,8 @@
       <text class="changeMore">多选</text>
     </view>
 
-    <!-- 列表内容 -->
+    <!-- 列表内容 -->  
+    <!-- data-song='{{item}}传值到播放详情页 -->
     <scroll-view scroll-y class='listScroll'>
       <view class="scrollItem" wx:for="{{recommendList}}" wx:key="id" data-index="{{index}}" data-song='{{item}}' bindtap="toSongDetail">
         <image src="{{item.album.picUrl}}"></image>

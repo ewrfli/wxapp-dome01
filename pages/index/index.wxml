@@ -9,19 +9,19 @@
 
     <!-- 图标导航区域 -->
     <view class="navContainer">
-      <view class="navItem">
+      <view class="navItem" bindtap="toRecommenSong">
         <text class="iconfont icon-tuijian"></text>
         <text>每日推荐</text>
       </view>
 
       <view class="navItem">
-        <text class="iconfont icon-icon-"></text>
+        <text class="iconfont icon-icon-" id="6784185940" bindtap="toRecommendList"></text>
         <text>歌单</text>
       </view>
 
       <view class="navItem">
-        <text class="iconfont icon-paixingbang"></text>
-        <text>排行榜</text>
+        <text class="iconfont icon-paixingbang" bindtap="toSearch"></text>
+        <text>热搜榜</text>
       </view>
 
       <view class="navItem">
@@ -43,9 +43,9 @@
         <!-- 推荐歌单图片 -->
         <view class="tjimg">
           <scroll-view class="recommendScroll" enable-flex="true" scroll-x="true">
-            <view class="scrollItem" wx:key="id" wx:for="{{recommendList}}" wx:for-item="recommendItem">
-              <image src="{{recommendItem.picUrl}}"></image>
-              <text>{{recommendItem.name}}</text>
+            <view class="scrollItem" wx:key="id" wx:for="{{recommendList}}" wx:for-item="recommendItem" >
+              <image src="{{recommendItem.picUrl}}" id="{{recommendItem.id}}" bindtap="toRecommendList"></image>
+              <text bindtap="toRecommendList">{{recommendItem.name}}</text>
             </view>
           </scroll-view>
         </view>
@@ -63,9 +63,9 @@
                 <view class="title">{{item.name}}</view>
 
                 <view class="musicItem" wx:for="{{item.tracks}}" wx:key="id" wx:for-item="musicItem">
-                  <image src="{{musicItem.al.picUrl}}"></image>
+                  <image src="{{musicItem.al.picUrl}}"bindtap="toSongDetail" id="{{musicItem.id}}"></image>
                   <text class="count">{{index+1}}</text>
-                  <text class="musicName">{{musicItem.name}}</text>
+                  <text class="musicName" bindtap="toSongDetail" id="{{musicItem.id}}">{{musicItem.name}}</text>
                 </view>
 
             </view>
