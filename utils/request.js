@@ -31,9 +31,20 @@ export default (url, data={}, method='GET' ) => {
       url: config.host+url,
       data,
       method,
+      header: {
+        cookie: wx.getStorageSync('cookies')?wx.getStorageSync('cookies').find(item => item.indexOf('MUSIC_U') !==-1):''
+      },
       success: (res) => {
         // console.log('请求成功:',res);
-        resolve(res.data);
+        
+        if(data.isLogin){//如果是登录请求
+          wx.setStorage({
+            key: 'cookies', //把用户cookies
+            data: res.cookies
+          })
+        }
+        resolve(res.data);//修改promise状态为resolve
+
       },
       fail: (err)=>{
         // console.log('请求sb:',err);

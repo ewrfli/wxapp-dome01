@@ -13,6 +13,8 @@ Page({
   data: {
     coverTransform:'translateY(0)',
     coverTransition:'',
+    userInfo:{},//用户信息
+    recentPlayList:[],//用户播放记录
 
   },
 
@@ -20,7 +22,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //读取用户基本信息
+    let userInfo = wx.getStorageSync('userInfo');
+    // console.log('userInfo',userInfo)
+    if(userInfo){
+      //更新userInfo状态
+      this.setData({
+        userInfo:JSON.parse(userInfo)
+      })
 
+      // 获取用户播放记录
+      this.getUserRecentPlayList(this.data.userInfo.userId)
+    }
+  },
+//获取用户播放记录的功能函数
+  // 获取用户播放记录的功能函数  ls2075939212
+  async getUserRecentPlayList(userId){
+    let recentPlayListData = await request('/user/record', {uid: userId, type: 0});
+    let index = 0;   //返回数据没有唯一值 没法加wx:key 自定义一个
+    let recentPlayList = recentPlayListData.allData.splice(0, 10).map(item => {
+      item.id = index++;  //map数组加工 里面加给itemid
+      return item;
+    })
+    this.setData({
+      recentPlayList
+    })
   },
 
   handleTouchStart(event){
@@ -51,7 +77,12 @@ Page({
       coverTransition: 'transform 0.5s linear'
     })
   },
-
+  
+  toLogin(){
+    wx.navigateTo({
+      url: '/pages/login/login',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

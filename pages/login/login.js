@@ -10,7 +10,7 @@
 //     3) 用户存在需要验证密码是否正确
 //     4) 密码不正确返回给前端提示密码不正确
 //     5) 密码正确返回给前端数据，提示用户登录成功(会携带用户的相关信息)
-
+import request from '../../utils/request'
 Page({
 
   /**
@@ -34,9 +34,68 @@ Page({
     this.setData({
       [type]: event.detail.value//对象里面处理属性用中括号
     })
-  }
-,
+  },
 
+async login(){
+  //1.收集表单项数据
+  let {phone, password} = this.data;
+  //2.前端验证
+      /*
+    * 手机号验证：
+    *   1. 内容为空
+    *   2. 手机号格式不正确
+    *   3. 手机号格式正确，验证通过
+    * */
+    
+   if(!phone){
+    // 提示用户
+    wx.showToast({
+      title: '手机号不能为空',
+      icon: 'none'
+    })
+    return;
+  }
+   // 定义正则表达式
+   let phoneReg = /^1(3|4|5|6|7|8|9)\d{9}$/;
+   if(!phoneReg.test(phone)){
+     wx.showToast({
+       title: '手机号格式错误',
+       icon: 'none'
+     })
+     return;
+   }
+   
+   if(!password){
+     wx.showToast({
+       title: '密码不能为空',
+       icon: 'none'
+     })
+     return;
+   }
+
+
+   //后端验证
+   let result = await request('/login/cellphone',{phone,password,isLogin:true})
+   if(result.code === 200){
+     wx.showToast({
+       title: '登录成功',
+     })
+     //用户信息存储
+     wx.setStorageSync('userInfo', JSON.stringify(result.profile))
+
+     //跳转个人中心
+     wx.reLaunch({
+       url: '/pages/personal/personal',
+     })
+
+   }
+   else{
+    wx.showToast({
+      title: '登录失败',
+    })
+   }
+
+},
 
 
   /**
